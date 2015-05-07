@@ -1,0 +1,8 @@
+db.posts.ensureIndex({date:-1})
+db.posts.find().sort({date:-1}).limit(10).explain("executionStats")
+
+
+db.posts.createIndex({"tags":"text", "permalink":"text"})
+db.posts.find({$text:{$search:'rectangle'}}).sort({date:-1}).limit(10).explain("executionStats")
+
+db.posts.find({$text:{$search:'mxwnnnqaflufnqwlekfd'}}).explain("executionStats")
